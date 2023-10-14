@@ -1,20 +1,21 @@
-public class DuplicateWordCount {
 
-    public static void main(String[] args) {
-        String str = "hello there hello hi there hello";
-        String[] strArr = str.split(" ");
+public class Solution {
 
-        HashMap<String, Integer> hashMap = new HashMap<>();
-        for (String s : strArr) {
-            Integer count = hashMap.get(s);
-            hashMap.put(s, count == null ? 1 : count + 1);
+     static void printSubstrings(String s) {
+
+        for(int i=0;i<s.length();i++){
+            String substring="";
+            substring+=s.charAt(i);
+            System.out.println(substring);
+            for(int j=i+1;j<s.length();j++){
+                substring+=s.charAt(j);
+                System.out.println(substring);
+            }
         }
-        System.out.println(hashMap);
-
-        Map<String, Integer> hashMapCountGreaterThanTwo = hashMap.entrySet().stream()
-                .filter(entry -> entry.getValue() > 1)
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-
-        System.out.println(hashMapCountGreaterThanTwo);
     }
+    public static void main(String[] args){
+        String s="ankit";
+        printSubstrings(ankit);
+    }
+
 }
